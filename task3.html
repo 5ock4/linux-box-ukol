@@ -34,7 +34,10 @@
         ul.appendChild(li)
       }
 
-      const remElem = (e) =>  e.path[2].removeChild(e.path[1])
+      const remElem = (e) => {
+        console.log(e)
+        e.target.parentNode.parentNode.removeChild(e.target.parentNode)
+      }
     </script>
 
     <h1>ToDo List</h1>

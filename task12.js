@@ -1,6 +1,6 @@
 const print = (x) => (y) => x + " " + y
 
-const multiplyLazy = (x, y, ms) => {
+const multiply = (x, y, ms=0) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(`x * y = ${x * y} (after ${ms}ms)`)
@@ -9,4 +9,4 @@ const multiplyLazy = (x, y, ms) => {
 }
 
 console.log(print("Wait")("for promise!"))
-multiplyLazy(2, 7, 5000).then((res) => console.log(res))
+multiply(2, 7).then((res) => console.log(res))
