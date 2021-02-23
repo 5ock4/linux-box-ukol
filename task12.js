@@ -9,4 +9,4 @@ const multiply = (x, y, ms=0) => {
 }
 
 console.log(print("Wait")("for promise!"))
-multiply(2, 7).then((res) => console.log(res))
+multiply(2, 7, 500).then((res) => console.log(res))
