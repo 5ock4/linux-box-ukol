@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ToDo List</title>
+    <style>
+      li {
+        width: 200px;
+      }
+
+      .delete {
+        float: right;
+      }
+
+      .links {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const addElem = (text) => {
+        const span = document.createElement("span")
+        span.classList.add("delete")
+        span.classList.add("links")
+        span.innerText = "-"
+        span.onclick = remElem
+
+        const li = document.createElement("li")
+        li.appendChild(document.createTextNode(text))
+        li.appendChild(span)
+        
+        const ul = document.getElementById("list")
+        ul.appendChild(li)
+      }
+
+      const remElem = (e) =>  e.path[2].removeChild(e.path[1])
+    </script>
+
+    <h1>ToDo List</h1>
+    <input id="input" type="text" />
+    <button class="links" onclick=addElem(document.getElementById("input").value)>add</button>
+
+    <ul id="list">
+      <li>
+        <!-- click on span.delete will remove this item from list -->
+        <span class="delete links" onclick=remElem(event)>-</span>
+        buy milk
+      </li>
+      <li>
+        <span class="delete links" onclick=remElem(event)>-</span>
+        wash dishes
+      </li>
+    </ul>
+  </body>
+</html>
